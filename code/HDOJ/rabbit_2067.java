@@ -1,6 +1,9 @@
 package HDOJ;
 
 import java.util.*;
+
+//dynamic programming
+
 public class rabbit_2067 {
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
