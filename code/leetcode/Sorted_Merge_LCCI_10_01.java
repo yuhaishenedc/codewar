@@ -2,6 +2,8 @@ package leetcode;
 
 public class Sorted_Merge_LCCI_10_01 {
 
+    //using shell sort
+
     static class Solution {
         public void merge(int[] A, int m, int[] B, int n) {
             for(int i=m;i<m+n;i++){
