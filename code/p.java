@@ -1,6 +1,6 @@
 public class p {
     public static void main(String[] args) {
-        double test=1.2;
-        System.out.println(String.format("%.2f",test));
+        int x=40000*40000;
+        System.out.println(x);
     }
 }

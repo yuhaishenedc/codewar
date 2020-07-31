@@ -1,6 +1,11 @@
-import java.math.BigInteger;
-import java.util.*;
-public class test{
+package PinDuoDuo;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Liang_Liang_Pei_Dui_Cha_Zhi_Zui_Xiao {
+    //贪心算法
+
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
@@ -18,5 +23,4 @@ public class test{
             System.out.println(sort[sort.length-1]-sort[0]);
         }
     }
-
 }
