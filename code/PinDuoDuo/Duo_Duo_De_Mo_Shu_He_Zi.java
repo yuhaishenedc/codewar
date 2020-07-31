@@ -28,7 +28,7 @@ package PinDuoDuo;
 
 import java.util.*;
 public class Duo_Duo_De_Mo_Shu_He_Zi {
-    //divide and conquer
+    //分治法
 
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);

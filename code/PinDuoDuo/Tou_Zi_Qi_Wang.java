@@ -1,6 +1,10 @@
-import java.math.BigInteger;
-import java.util.*;
-public class test{
+package PinDuoDuo;
+
+import java.util.Scanner;
+
+public class Tou_Zi_Qi_Wang {
+    //古典概型
+
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
@@ -31,5 +35,4 @@ public class test{
             System.out.println(String.format("%.2f",ret));
         }
     }
-
 }
