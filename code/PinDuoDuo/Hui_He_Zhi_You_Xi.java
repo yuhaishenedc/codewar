@@ -1,8 +1,8 @@
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+package PinDuoDuo;
 
-import java.math.BigInteger;
-import java.util.*;
-public class test{
+import java.util.Scanner;
+
+public class Hui_He_Zhi_You_Xi {
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
@@ -32,5 +32,4 @@ public class test{
             }
         }
     }
-
 }
