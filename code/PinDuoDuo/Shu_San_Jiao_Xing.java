@@ -1,5 +1,8 @@
+package PinDuoDuo;
+
 import java.util.*;
-public class test{
+
+public class Shu_San_Jiao_Xing {
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
@@ -25,10 +28,4 @@ public class test{
             System.out.println(count);
         }
     }
-
-    public static double getInstance(int x1,int x2,int y1,int y2){
-        return Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
-    }
-
-
 }
