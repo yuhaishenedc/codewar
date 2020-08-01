@@ -1,9 +1,11 @@
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+package PinDuoDuo;
 
-import java.lang.reflect.Array;
-import java.math.BigInteger;
-import java.util.*;
-public class test{
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Zhong_Shu {
+    //DFS
+
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
@@ -52,5 +54,4 @@ public class test{
         }
         return false;
     }
-
 }
