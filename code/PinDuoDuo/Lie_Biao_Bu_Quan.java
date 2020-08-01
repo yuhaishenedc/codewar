@@ -1,5 +1,8 @@
-import java.util.*;
-public class test{
+package PinDuoDuo;
+
+import java.util.Scanner;
+
+public class Lie_Biao_Bu_Quan {
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
@@ -38,5 +41,4 @@ public class test{
             System.out.println(left1+" "+right1+" "+left2+" "+right2);
         }
     }
-
 }
