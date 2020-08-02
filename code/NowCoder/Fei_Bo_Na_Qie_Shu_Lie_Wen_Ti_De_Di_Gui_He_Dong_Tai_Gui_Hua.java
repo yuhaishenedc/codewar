@@ -1,6 +1,11 @@
-import java.util.*;
-public class test{
+package NowCoder;
 
+import java.util.*;
+
+//https://www.nowcoder.com/questionTerminal/376282a6682a4005973cde7b3df69584
+//快速幂问题
+
+public class Fei_Bo_Na_Qie_Shu_Lie_Wen_Ti_De_Di_Gui_He_Dong_Tai_Gui_Hua {
     public static int c=1000000007;
 
     public static void main(String[] args){
@@ -13,7 +18,7 @@ public class test{
             }
             long[][] matrix={{1,1},{1,0}};
             long[][] res=power(n-1,matrix);
-            System.out.println((2*res[0][1]+res[1][1])%c);
+            System.out.println((1*res[0][1]+res[1][1])%c);
         }
     }
 
@@ -45,5 +50,4 @@ public class test{
         }
         return res;
     }
-
 }
