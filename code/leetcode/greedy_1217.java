@@ -4,6 +4,7 @@ package leetcode;
 
 public class greedy_1217 {
     //非典型贪心算法
+    //因为只有奇数和偶数的区别，所以这里分别统计奇数和偶数然后取最小值就可以
 
     class Solution {
         public int minCostToMoveChips(int[] chips) {
