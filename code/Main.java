@@ -3,16 +3,21 @@ public class Main{
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
-            String s=input.nextLine();
-            int[] arr=new int[256];
-            StringBuilder sb=new StringBuilder();
-            for(int i=0;i<s.length();i++){
-                if(arr[s.charAt(i)]==0){
-                    sb.append(s.charAt(i));
+            int[][] arr=new int[9][9];
+            for(int i=0;i<9;i++){
+                for(int j=0;j<9;j++){
+                    arr[i][j]=input.nextInt();
                 }
-                arr[s.charAt(i)]++;
             }
-            System.out.println(sb.toString());
+            for(int i=0;i<9;i++){
+                for(int j=0;j<9;j++){
+                    dfs(i,j,arr);
+                }
+            }
         }
+    }
+
+    public static void dfs(int i,int j,int[][] arr){
+
     }
 }
