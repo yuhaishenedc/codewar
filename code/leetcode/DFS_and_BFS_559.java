@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-public class DFS_559 {
+public class DFS_and_BFS_559 {
 
 // Definition for a Node.
 class Node {
@@ -22,7 +22,7 @@ class Node {
 };
 
 
-    class Solution {
+    class DFS_Solution {
         public int maxDepth(Node root) {
             int max=0;
             if(root==null){
@@ -35,6 +35,28 @@ class Node {
                 }
             }
             return 1+max;
+        }
+    }
+
+    class BFS_Solution {
+        public int maxDepth(Node root) {
+            if(root==null){
+                return 0;
+            }
+            Queue<Node> q=new LinkedList<Node>();
+            q.offer(root);
+            int count=0;
+            while(!q.isEmpty()){
+                int len=q.size();
+                count++;
+                for(int i=0;i<len;i++){
+                    Node tmp=q.poll();
+                    for(int j=0;j<tmp.children.size();j++){
+                        q.offer(tmp.children.get(j));
+                    }
+                }
+            }
+            return count;
         }
     }
 }
