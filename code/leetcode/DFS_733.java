@@ -1,6 +1,6 @@
 package leetcode;
 
-public class DFS_Mian_Shi_Ti_08_10 {
+public class DFS_733 {
     class Solution {
         public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
             int l1=image.length;
