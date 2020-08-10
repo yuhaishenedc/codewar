@@ -2,7 +2,8 @@ import java.util.*;
 public class test{
 
     public static void main(String[] args){
-        System.out.println(null==null);
+        int i=1000000007;
+        System.out.println(i);
     }
 
 
