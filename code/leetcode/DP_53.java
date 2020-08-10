@@ -1,6 +1,6 @@
 package leetcode;
 
-public class DFS_53 {
+public class DP_53 {
     class Solution {
         public int maxSubArray(int[] nums) {
             int len=nums.length;
