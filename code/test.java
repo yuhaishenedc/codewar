@@ -5,7 +5,7 @@ public class test{
         String x="abbd";
         Solution test=new Solution();
         System.out.println(test.longestPalindrome(x));
-
+        HashMap
     }
 
 
