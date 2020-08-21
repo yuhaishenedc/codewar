@@ -3,21 +3,32 @@ public class Main{
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
-            int[][] arr=new int[9][9];
-            for(int i=0;i<9;i++){
-                for(int j=0;j<9;j++){
-                    arr[i][j]=input.nextInt();
+            String temp=input.nextLine().trim();
+            char[] arr=temp.toCharArray();
+            int len=arr.length;
+            StringBuilder sb=new StringBuilder();
+            int begin=len-1;
+            int end=len;
+            while(begin>0){
+                if(arr[begin]!=' '&&begin>0){
+                    begin--;
+                }
+                else{
+                    if(begin==0){
+                        for(int i=begin;i<end;i++){
+                            sb.append(arr[i]);
+                        }
+                    }
+                    else{
+                        for(int i=begin+1;i<end;i++){
+                            sb.append(arr[i]);
+                        }
+                        sb.append(' ');
+                    }
+                    end=begin;
                 }
             }
-            for(int i=0;i<9;i++){
-                for(int j=0;j<9;j++){
-                    dfs(i,j,arr);
-                }
-            }
+            System.out.println(sb.toString());
         }
-    }
-
-    public static void dfs(int i,int j,int[][] arr){
-
     }
 }

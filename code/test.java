@@ -1,17 +1,14 @@
+import java.sql.Struct;
 import java.util.*;
-public class test{
-    public static void main(String[] args){
-        Queue
-        for(int i=2017;i<100000000;i++){
-            if(i%6==0&&i%8==0&&i%9==0){
-                System.out.println(i);
-                break;
-            }
-        }
-    }
 
-    public static void helper(int count){
-        helper(count+1);
+public class test{
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        while(input.hasNext()){
+            char c=input.next().charAt(0);
+            System.out.println(c);
+        }
+        Stack
     }
 }
 
