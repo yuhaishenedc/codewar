@@ -1,7 +1,7 @@
 package leetcode;
 
 public class LinkedList_206 {
-    class Solution {
+    class Iteration_Solution {
         public ListNode reverseList(ListNode head) {
             if(head==null){
                 return null;
