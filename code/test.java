@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 public class test{
-    LinkedList
+    Set
 
     // 表达式字符合法性校验正则模式，静态常量化可以降低每次使用都要编译地消耗
     private static final Pattern EXPRESSION_PATTERN = Pattern.compile("[0-9\\.+-/*()= ]+");
