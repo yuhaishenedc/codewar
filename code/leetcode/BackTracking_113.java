@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-public class BackTracking_OFFER_34 {
+public class BackTracking_113 {
     class Solution {
         public List<List<Integer>> pathSum(TreeNode root, int sum) {
             List<List<Integer>> ret=new ArrayList<>();
@@ -15,7 +15,6 @@ public class BackTracking_OFFER_34 {
         }
 
         public void helper(List<List<Integer>> ret,LinkedList<Integer> track,int sum,TreeNode root){
-            System.out.println("sum:"+sum+" root:"+root.val);
             if(root.left==null&&root.right==null&&root.val==sum){
                 track.add(root.val);
                 LinkedList<Integer> add=new LinkedList(track);
@@ -24,13 +23,11 @@ public class BackTracking_OFFER_34 {
                 return;
             }
             if(root.left!=null){
-                System.out.println("left");
                 track.add(root.val);
                 helper(ret,track,sum-root.val,root.left);
                 track.removeLast();
             }
             if(root.right!=null){
-                System.out.println("right");
                 track.add(root.val);
                 helper(ret,track,sum-root.val,root.right);
                 track.removeLast();
