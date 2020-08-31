@@ -1,5 +1,8 @@
-import java.util.*;
-public class Main{
+package HDOJ;
+
+import java.util.Scanner;
+
+public class C_2025 {
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
