@@ -2,6 +2,8 @@ import java.util.*;
 
 public class test {
 
+
+
     public static void main(String[] args) {
         String temp="0123456";
         StringBuilder sb=new StringBuilder(temp);
