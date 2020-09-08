@@ -1,17 +1,8 @@
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+package leetcode;
 
-public class test {
-
-
-
-    public static void main(String[] args) {
-        Solution test=new Solution();
-        System.out.println(test.canWinNim(1348820612));
-
-    }
-
-    static class Solution {
+public class DP_292 {
+    //博弈问题
+    class Solution {
         public boolean canWinNim(int n) {
             if(n<=3){
                 return true;
@@ -23,13 +14,7 @@ public class test {
             }
             for(int i=4;i<=n;i++){
                 int tmp=dp[2];
-                if(dp[0]==0){
-                    dp[2]=1;
-                }
-                if(dp[1]==0){
-                    dp[2]=1;
-                }
-                if(dp[2]==0){
+                if(dp[0]==0||dp[1]==0||dp[2]==0){
                     dp[2]=1;
                 }
                 dp[0]=dp[1];
@@ -38,11 +23,8 @@ public class test {
             if(dp[2]==0){
                 return false;
             }
+
             return true;
         }
     }
-
-
-
 }
-
