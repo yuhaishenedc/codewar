@@ -1,64 +1,74 @@
-import java.io.IOException;
-import java.io.PipedReader;
-import java.io.PipedWriter;
-import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class test {
+    private static String LOCK="LOCK";
+    private final Integer FULL=10;
+    private static Integer count=0;
+
     public static void main(String[] args) throws Exception {
-        Sender sender=new Sender();
-        Receiver receiver=new Receiver(sender);
-        ExecutorService exec= Executors.newCachedThreadPool();
-        exec.execute(sender);
-        exec.execute(receiver);
-
-        TimeUnit.SECONDS.sleep(4);
-        exec.shutdownNow();
+        test t=new test();
+        new Thread(t.new Producer()).start();
+        new Thread(t.new Consumer()).start();
+        new Thread(t.new Producer()).start();
+        new Thread(t.new Consumer()).start();
+        new Thread(t.new Producer()).start();
+        new Thread(t.new Consumer()).start();
+        new Thread(t.new Producer()).start();
+        new Thread(t.new Consumer()).start();
     }
 
-
-}
-
-class Sender implements Runnable{
-    private Random random=new Random(47);
-    private PipedWriter out=new PipedWriter();
-    public PipedWriter getPipedWriter(){
-        return out;
-    }
-    public void run(){
-        try{
-            while(true){
-                for(char c='A';c<'Z';c++){
-                    out.write(c);
-                    TimeUnit.MILLISECONDS.sleep(random.nextInt(500));
+    class Producer implements Runnable{
+        @Override
+        public void run(){
+            for(int i=0;i<10;i++){
+                try{
+                    Thread.sleep(3000);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                synchronized (LOCK){
+                    while (count==FULL){
+                        try{
+                            LOCK.wait();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                    count++;
+                    System.out.println(Thread.currentThread().getName()+"  生产者生产，目前共有："+count);
+                    LOCK.notifyAll();
                 }
             }
-        }catch (IOException e){
-            System.out.println(e+" Sender write exception");
-        }catch (InterruptedException e){
-            System.out.println(e+" Sender sleep interrupt");
         }
     }
-}
 
-
-class Receiver implements Runnable{
-    private PipedReader in;
-    public Receiver(Sender sender) throws IOException{
-        in = new PipedReader(sender.getPipedWriter());
-    }
-
-    public void run(){
-        try{
-            while(true){
-                System.out.println("Read: " + (char)in.read() + ",");
+    class Consumer implements Runnable{
+        @Override
+        public void run(){
+            for(int i=0;i<10;i++){
+                try{
+                    Thread.sleep(3000);
+                }catch (InterruptedException e1){
+                    e1.printStackTrace();
+                }
+                synchronized (LOCK){
+                    while(count==0){
+                        try{
+                            LOCK.wait();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                    count--;
+                    System.out.println(Thread.currentThread().getName()+"消费者消费，目前共有："+count);
+                    LOCK.notifyAll();
+                }
             }
-        }catch(IOException e){
-            System.out.println(e + " Receiver read exception");
         }
     }
 }
+
+
+
 
