@@ -2,71 +2,40 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class test {
-    private static String LOCK="LOCK";
-    private final Integer FULL=10;
-    private static Integer count=0;
-
     public static void main(String[] args) throws Exception {
-        test t=new test();
-        new Thread(t.new Producer()).start();
-        new Thread(t.new Consumer()).start();
-        new Thread(t.new Producer()).start();
-        new Thread(t.new Consumer()).start();
-        new Thread(t.new Producer()).start();
-        new Thread(t.new Consumer()).start();
-        new Thread(t.new Producer()).start();
-        new Thread(t.new Consumer()).start();
+        int n=3;
+        int cycle=123;
+        int base=1;
+        if(n==1){
+            base=3;
+        }
+        if(n>1){
+            for(int i=0;i<n;i++){
+                base*=10;
+            }
+            base-=1;
+        }
+        int common=helper(cycle,base);
+        cycle/=common;
+        base/=common;
+        System.out.println(cycle+"/"+base);
     }
 
-    class Producer implements Runnable{
-        @Override
-        public void run(){
-            for(int i=0;i<10;i++){
-                try{
-                    Thread.sleep(3000);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-                synchronized (LOCK){
-                    while (count==FULL){
-                        try{
-                            LOCK.wait();
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
-                    }
-                    count++;
-                    System.out.println(Thread.currentThread().getName()+"  生产者生产，目前共有："+count);
-                    LOCK.notifyAll();
-                }
-            }
+    public static int helper(int x1,int x2){
+        if(x1<x2){
+            int tmp=x1;
+            x1=x2;
+            x2=tmp;
         }
+        while(x2>0){
+            int tmp=x1%x2;
+            x1=x2;
+            x2=tmp;
+        }
+        return x1;
     }
 
-    class Consumer implements Runnable{
-        @Override
-        public void run(){
-            for(int i=0;i<10;i++){
-                try{
-                    Thread.sleep(3000);
-                }catch (InterruptedException e1){
-                    e1.printStackTrace();
-                }
-                synchronized (LOCK){
-                    while(count==0){
-                        try{
-                            LOCK.wait();
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
-                    }
-                    count--;
-                    System.out.println(Thread.currentThread().getName()+"消费者消费，目前共有："+count);
-                    LOCK.notifyAll();
-                }
-            }
-        }
-    }
+
 }
 
 
