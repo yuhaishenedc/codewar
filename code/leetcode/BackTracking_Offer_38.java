@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-public class Offer_38 {
+public class BackTracking_Offer_38 {
     class Solution {
         HashSet<String> set;
         public String[] permutation(String s) {
