@@ -1,10 +1,10 @@
 package leetcode;
 
-public class Longest_Continuous_Increasing_Subsequence_674 {
+public class DP_Sliding_window_674 {
 
     //sliding window
 
-    class Solution {
+    class sliding_window_Solution {
         public int findLengthOfLCIS(int[] nums) {
             int len=nums.length;
             int max=1;
@@ -29,6 +29,26 @@ public class Longest_Continuous_Increasing_Subsequence_674 {
                 }
             }
             return max;
+        }
+    }
+
+    class dp_Solution {
+        public int findLengthOfLCIS(int[] nums) {
+            int len=nums.length;
+            int[] dp=new int[len];
+            int ret=1;
+            if(len==0){
+                return 0;
+            }
+            dp[0]=1;
+            for(int i=1;i<len;i++){
+                dp[i]=1;
+                if(nums[i]>nums[i-1]){
+                    dp[i]=dp[i-1]+1;
+                }
+                ret=Math.max(dp[i],ret);
+            }
+            return ret;
         }
     }
 }
