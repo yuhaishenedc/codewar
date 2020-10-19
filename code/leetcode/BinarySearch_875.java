@@ -20,7 +20,7 @@ public class BinarySearch_875 {
             return left;
         }
 
-        public static boolean helper(int[] piles,int h,int mid){
+        public boolean helper(int[] piles,int h,int mid){
             int cnt=0;
             int len=piles.length;
             for(int i=0;i<len;i++){
